@@ -1,64 +1,101 @@
-@@ -0,0 +1,76 @@
+/* -----------------------------------
+   THEME VARIABLES
+----------------------------------- */
 :root {
   --bg: #f9fafb;
   --card-bg: #ffffff;
   --accent: #d12c7a; /* SASSy magenta */
   --text: #333;
-  --muted: #666;
-  --radius: 12px;
-  --shadow: 0 6px 18px rgba(0,0,0,0.08);
+  --muted: #555;
+  --radius: 14px;
+  --shadow: 0 10px 25px rgba(0,0,0,0.08);
+  --shadow-hover: 0 14px 32px rgba(0,0,0,0.12);
+}
+
+/* -----------------------------------
+   GLOBAL BASE
+----------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
-  margin: 0;
   padding: 40px;
   display: flex;
   justify-content: center;
 }
 
+/* -----------------------------------
+   TESTIMONIAL GRID
+----------------------------------- */
 .testimonials {
+  max-width: 1100px;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
+  gap: 28px;
 }
 
+/* -----------------------------------
+   CARD STYLING
+----------------------------------- */
 .card {
   background: var(--card-bg);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 20px;
+  padding: 24px;
   text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid #eee;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* -----------------------------------
+   AVATAR
+----------------------------------- */
 .card img {
-  width: 80px;
-  height: 80px;
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
+  object-fit: cover;
   margin-bottom: 15px;
   border: 3px solid var(--accent);
 }
 
+/* -----------------------------------
+   TEXT
+----------------------------------- */
 .card h3 {
-  margin: 10px 0 5px;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--accent);
+  margin-bottom: 8px;
 }
 
 .card p {
   font-size: 0.95rem;
   color: var(--muted);
-  line-height: 1.4;
+  line-height: 1.55;
 }
 
+/* -----------------------------------
+   RESPONSIVE
+----------------------------------- */
 @media (max-width: 600px) {
   body {
     padding: 20px;
   }
 
   .card {
-    padding: 16px;
+    padding: 18px;
   }
 
   .card img {
@@ -72,6 +109,5 @@ body {
 
   .card p {
     font-size: 1rem;
-    line-height: 1.5;
   }
 }
